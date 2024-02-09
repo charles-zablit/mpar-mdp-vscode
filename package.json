@@ -1,0 +1,30 @@
+{
+  "name": "mpar-mdp-vscode",
+  "displayName": "MPAR MDP VSCode",
+  "description": "MDP grammar support for the MPAR class",
+  "publisher": "CharlesZablit",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charles-zablit/mpar-mdp-vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "mdp",
+      "aliases": ["MPAR MDP", "mdp"],
+      "extensions": [".mdp"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "mdp",
+      "scopeName": "source.mdp",
+      "path": "./syntaxes/mdp.tmLanguage.json"
+    }]
+  }
+}

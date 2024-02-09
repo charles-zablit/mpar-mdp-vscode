@@ -1,0 +1,63 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "MPAR MDP",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#numeric-literal"
+		},
+		{
+			"include": "#variable-name"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.mdp",
+					"match": "\\b(States|Actions)\\b"
+				}
+			]
+		},
+		"numeric-literal": {
+			"patterns": [
+				{
+					"comment": "Integer literal",
+					"match": "\\b((?:\\d|_)+)\\b",
+					"name": "constant.numeric.integer.mdp"
+				},
+				{
+					"comment": "Invalid literal",
+					"match": "\\b\\d+\\w+\\b",
+					"name": "invalid.illegal.constant.mdp"
+				}
+			]
+		},
+		"variable-name": {
+			"patterns": [
+				{
+					"match": "\\b\\d\\b",
+					"name": "constant.numeric.integer.mdp"
+				},
+				{
+					"match": "[a-zA-Z_]\\w*",
+					"name": "variable.mdp"
+				},
+				{
+					"match": "([0-9])(\\w*)",
+					"captures": {
+						"1": {
+							"name": "invalid.illegal.constant.mdp"
+						},
+						"2": {
+							"name": "variable.mdp"
+						}
+					}
+				}
+			]
+		}
+	},
+	"scopeName": "source.mdp"
+}
